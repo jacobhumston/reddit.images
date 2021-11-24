@@ -1,4 +1,6 @@
-const fetch = require('node-fetch');
+const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args)).catch(error => {
+    return;
+});
 const BaseURL = 'https://api.reddit.com';
 const functions = require('./function');
 const MemeSubreddit = [
